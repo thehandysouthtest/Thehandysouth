@@ -37,6 +37,62 @@
       <span>HOME</span><span>YARD</span><span>ODD JOBS</span><span>LOCAL SERVICES</span><span>AND MORE</span>
     </section>
 
+    <section class="marketplace" id="marketplace">
+      <div class="section-heading">
+        <p class="eyebrow">THE LOCAL HELP BOARD</p>
+        <h2>Jobs that need a hand. Helpers ready to work.</h2>
+        <p>We're testing a simple community board where people can see the kind of help being requested and the kinds of skills available.</p>
+      </div>
+
+      <div class="board-grid">
+        <div class="board-column">
+          <div class="board-title"><div><p class="eyebrow">JOBS LISTED</p><h3>People needing help</h3></div><span class="count-badge">4</span></div>
+          <article class="listing-card">
+            <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">New Albany, MS</span></div>
+            <h4>Yard cleanup and hauling</h4><p>Need leaves, limbs and a few bags of debris cleaned up and hauled away.</p>
+            <div class="listing-meta"><span>🌿 Yard work</span><span>Posted today</span></div>
+            <a class="text-button" href="#request">I can help →</a>
+          </article>
+          <article class="listing-card">
+            <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Tupelo, MS</span></div>
+            <h4>Furniture moving</h4><p>Need help moving a couch and a few heavy items from one room to another.</p>
+            <div class="listing-meta"><span>📦 Moving</span><span>Posted today</span></div>
+            <a class="text-button" href="#request">I can help →</a>
+          </article>
+          <article class="listing-card">
+            <div class="listing-top"><span class="status-dot"></span><span>Looking for help</span><span class="listing-location">Oxford, MS</span></div>
+            <h4>Small home repair</h4><p>Looking for someone comfortable with basic repairs and installation work.</p>
+            <div class="listing-meta"><span>🔧 Handyman</span><span>Test listing</span></div>
+            <a class="text-button" href="#request">I can help →</a>
+          </article>
+          <article class="listing-card">
+            <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Pontotoc, MS</span></div>
+            <h4>House cleaning</h4><p>Need a one-time cleaning and would like to find a dependable local helper.</p>
+            <div class="listing-meta"><span>🧹 Cleaning</span><span>Test listing</span></div>
+            <a class="text-button" href="#request">I can help →</a>
+          </article>
+        </div>
+
+        <div class="board-column">
+          <div class="board-title"><div><p class="eyebrow">HELPERS AVAILABLE</p><h3>People ready to help</h3></div><span class="count-badge green">4</span></div>
+          <article class="helper-card">
+            <div class="helper-avatar">J</div><div class="helper-info"><h4>Local handyman</h4><p>New Albany • Small repairs & assembly</p><span class="availability">● Available</span></div>
+          </article>
+          <article class="helper-card">
+            <div class="helper-avatar">M</div><div class="helper-info"><h4>Yard work helper</h4><p>Tupelo area • Lawn & cleanup</p><span class="availability">● Available</span></div>
+          </article>
+          <article class="helper-card">
+            <div class="helper-avatar">T</div><div class="helper-info"><h4>Moving & hauling</h4><p>Oxford / Pontotoc • Lifting & hauling</p><span class="availability">● Available</span></div>
+          </article>
+          <article class="helper-card">
+            <div class="helper-avatar">A</div><div class="helper-info"><h4>Cleaning helper</h4><p>North Mississippi • Home cleaning</p><span class="availability">● Available</span></div>
+          </article>
+          <a class="outline-button" href="#helper">Want to be listed as a helper? <span>→</span></a>
+        </div>
+      </div>
+      <p class="board-note">These are test listings for the early version of The Handy South. We're building the system that will let real customers and helpers create and manage their own listings.</p>
+    </section>
+
     <section class="request-section" id="request">
       <div class="section-heading">
         <p class="eyebrow">BE ONE OF OUR FIRST TESTERS</p>
@@ -75,6 +131,24 @@
         </div>
         <button class="primary-button submit-button" type="submit">Send my request <span>→</span></button>
         <p class="form-note">By submitting, you’re helping us test and shape The Handy South. We’ll only use your information to follow up about your request.</p>
+      </form>
+    </section>
+
+    <section class="helper-section" id="helper">
+      <div class="section-heading">
+        <p class="eyebrow">HAVE A SKILL?</p>
+        <h2>Get on the helper list.</h2>
+        <p>Tell us what you can do and where you work. We'll keep your information on our early helper list while we build the full provider side of the site.</p>
+      </div>
+      <form class="helper-form" action="https://formspree.io/f/xjygvqbb" method="POST">
+        <input type="hidden" name="_subject" value="New The Handy South helper signup">
+        <div class="form-grid">
+          <label>Your name<input type="text" name="helper_name" placeholder="Your name" required></label>
+          <label>City / service area<input type="text" name="helper_location" placeholder="New Albany, Tupelo, etc." required></label>
+          <label>What can you help with?<input type="text" name="skills" placeholder="Lawn work, hauling, repairs..." required></label>
+          <label>Best phone or email<input type="text" name="helper_contact" placeholder="How should we reach you?" required></label>
+        </div>
+        <button class="primary-button submit-button" type="submit">Join the helper list <span>→</span></button>
       </form>
     </section>
 
