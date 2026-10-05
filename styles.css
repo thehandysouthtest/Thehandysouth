@@ -5,3 +5,5 @@
 @media(max-width:760px){.marketplace{padding:70px 20px 30px}.board-grid{grid-template-columns:1fr}.board-column{padding:20px}.listing-location{font-size:10px}.helper-section{padding:70px 20px}.helper-form{padding:22px}}
 
 .content-warning{display:none;margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#fff0ed;border:1px solid #efc2b8;color:#9b351f;font-size:13px;font-weight:700}.content-warning.show{display:block}
+
+.site-disclaimer{max-width:1000px;margin:22px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);color:#b8c0bb;font-size:11px;line-height:1.6}.site-disclaimer strong{color:#e5e9e6}@media(max-width:760px){.site-disclaimer{font-size:10px}}
