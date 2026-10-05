@@ -16,3 +16,7 @@
 .listing-card.is-hidden{display:none}
 @media(max-width:900px){.job-search{grid-template-columns:1fr 1fr}.search-button{width:100%}}
 @media(max-width:600px){.job-search{grid-template-columns:1fr;padding:14px}.search-button{width:100%}}
+
+
+.job-details-button{background:none;border:0;padding:0;box-shadow:none;font:inherit;cursor:pointer}.job-details-button:hover{background:none;color:var(--accent-dark)}
+.job-modal[hidden]{display:none}.job-modal{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px}.job-modal-backdrop{position:absolute;inset:0;background:rgba(24,35,31,.65)}.job-modal-card{position:relative;z-index:1;width:min(520px,100%);background:var(--paper);border-radius:22px;padding:32px;box-shadow:0 25px 70px rgba(0,0,0,.25)}.job-modal-card h3{font-size:30px;line-height:1.05;margin:0 0 12px}.job-modal-card p:not(.eyebrow){color:var(--muted)}.job-pay{display:inline-block;margin:12px 0 8px;padding:10px 14px;border-radius:10px;background:#e0ebe5;color:var(--green);font-size:20px;font-weight:900}.job-modal-location{margin:4px 0 22px;color:var(--muted);font-weight:700}.job-modal-close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:30px;cursor:pointer;color:var(--muted)}
