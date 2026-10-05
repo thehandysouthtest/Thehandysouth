@@ -101,17 +101,17 @@
 
         <div class="board-column">
           <div class="board-title"><div><p class="eyebrow">HELPERS AVAILABLE</p><h3>People ready to help</h3></div><span class="count-badge green">4</span></div>
-          <article class="helper-card">
-            <div class="helper-avatar">J</div><div class="helper-info"><h4>Local handyman</h4><p>New Albany • Small repairs & assembly</p><span class="availability">● Available</span></div>
+          <article class="helper-card" data-helper-name="Local handyman" data-helper-location="New Albany" data-helper-specialty="Small repairs, assembly, installation and basic home maintenance">
+            <div class="helper-avatar">J</div><div class="helper-info"><h4>Local handyman</h4><p>New Albany</p><div class="helper-specialty"><strong>Specialty:</strong> Small repairs, assembly & installation</div><span class="availability">● Available</span><button class="text-button helper-interest-button" type="button">Send interest to The Handy South →</button></div>
           </article>
-          <article class="helper-card">
-            <div class="helper-avatar">M</div><div class="helper-info"><h4>Yard work helper</h4><p>Tupelo area • Lawn & cleanup</p><span class="availability">● Available</span></div>
+          <article class="helper-card" data-helper-name="Yard work helper" data-helper-location="Tupelo area" data-helper-specialty="Lawn care, yard cleanup, leaves, limbs and outdoor cleanup">
+            <div class="helper-avatar">M</div><div class="helper-info"><h4>Yard work helper</h4><p>Tupelo area</p><div class="helper-specialty"><strong>Specialty:</strong> Lawn care & cleanup</div><span class="availability">● Available</span><button class="text-button helper-interest-button" type="button">Send interest to The Handy South →</button></div>
           </article>
-          <article class="helper-card">
-            <div class="helper-avatar">T</div><div class="helper-info"><h4>Moving & hauling</h4><p>Oxford / Pontotoc • Lifting & hauling</p><span class="availability">● Available</span></div>
+          <article class="helper-card" data-helper-name="Moving & hauling" data-helper-location="Oxford / Pontotoc" data-helper-specialty="Furniture moving, lifting, loading, unloading and hauling">
+            <div class="helper-avatar">T</div><div class="helper-info"><h4>Moving & hauling</h4><p>Oxford / Pontotoc</p><div class="helper-specialty"><strong>Specialty:</strong> Lifting, moving & hauling</div><span class="availability">● Available</span><button class="text-button helper-interest-button" type="button">Send interest to The Handy South →</button></div>
           </article>
-          <article class="helper-card">
-            <div class="helper-avatar">A</div><div class="helper-info"><h4>Cleaning helper</h4><p>North Mississippi • Home cleaning</p><span class="availability">● Available</span></div>
+          <article class="helper-card" data-helper-name="Cleaning helper" data-helper-location="North Mississippi" data-helper-specialty="Home cleaning, one-time cleaning, kitchens, bathrooms and general cleanup">
+            <div class="helper-avatar">A</div><div class="helper-info"><h4>Cleaning helper</h4><p>North Mississippi</p><div class="helper-specialty"><strong>Specialty:</strong> Home cleaning & general cleanup</div><span class="availability">● Available</span><button class="text-button helper-interest-button" type="button">Send interest to The Handy South →</button></div>
           </article>
           <a class="outline-button" href="#helper">Want to be listed as a helper? <span>→</span></a>
         </div>
@@ -150,6 +150,36 @@
             <label class="full">Message to the customer<textarea name="helper_message" rows="4" placeholder="Tell them why you're a good fit..."></textarea></label>
             <button class="primary-button submit-button" type="submit">Send my interest <span>→</span></button>
             <p class="form-note">This sends the job and your contact information to The Handy South for matching.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="helper-interest-section" id="helper-interest" hidden>
+      <div class="helper-interest-card">
+        <button class="back-button" type="button" id="backToHelpers">← Back to helpers</button>
+        <p class="eyebrow">REQUEST A CONNECTION</p>
+        <h2 id="interestHelperName">Helper</h2>
+        <div class="helper-interest-summary">
+          <div><span>AREA</span><strong id="interestHelperLocation"></strong></div>
+          <div><span>SPECIALTY</span><strong id="interestHelperSpecialty"></strong></div>
+        </div>
+        <div class="match-box">
+          <p class="eyebrow">INTERESTED IN THIS HELPER?</p>
+          <h3>Send your request through The Handy South.</h3>
+          <p>We will forward your interest to the helper. Their private phone number and email will not be shown on this site.</p>
+          <form class="helper-interest-form" action="https://formspree.io/f/xjygvqbb" method="POST">
+            <input type="hidden" name="_subject" value="Client interested in The Handy South helper">
+            <input type="hidden" name="helper_name" id="interestHelperNameField">
+            <input type="hidden" name="helper_location" id="interestHelperLocationField">
+            <input type="hidden" name="helper_specialty" id="interestHelperSpecialtyField">
+            <label>Your name<input type="text" name="client_name" required placeholder="Your name"></label>
+            <label>Your email<input type="email" name="client_email" required placeholder="you@example.com"></label>
+            <label>Your phone (optional)<input type="tel" name="client_phone" placeholder="Phone number"></label>
+            <label class="full">What do you need help with?<textarea name="client_message" rows="4" required placeholder="Tell us what you need done, when you need it, and any useful details..."></textarea></label>
+            <button class="primary-button submit-button" type="submit">Send interest <span>→</span></button>
+            <p class="form-note">Your message goes to The Handy South first so we can forward the request to the selected helper. Direct contact information is not displayed publicly.</p>
+            <p class="content-warning" aria-live="polite"></p>
           </form>
         </div>
       </div>
