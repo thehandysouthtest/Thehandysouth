@@ -87,3 +87,21 @@ document.querySelectorAll(".helper-form").forEach(function(form){form.addEventLi
   [searchInput,locationInput].forEach(function(input){input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();runSearch();}});});
   categorySelect.addEventListener("change",runSearch);
 })();
+
+
+(function(){
+  const modal=document.getElementById("jobModal");
+  if(!modal) return;
+  const title=document.getElementById("jobModalTitle"), desc=document.getElementById("jobModalDescription"), pay=document.getElementById("jobModalPay"), loc=document.getElementById("jobModalLocation");
+  document.querySelectorAll(".job-details-button").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      const card=btn.closest(".listing-card");
+      title.textContent=card.querySelector("h4").textContent;
+      desc.textContent=card.querySelector(".listing-card p").textContent;
+      pay.textContent=card.dataset.jobPay || "Pay to be agreed with the customer";
+      loc.textContent=card.querySelector(".listing-location").textContent;
+      modal.hidden=false; modal.setAttribute("aria-hidden","false");
+    });
+  });
+  modal.querySelectorAll("[data-close-job]").forEach(function(el){el.addEventListener("click",function(){modal.hidden=true;modal.setAttribute("aria-hidden","true");});});
+})();
