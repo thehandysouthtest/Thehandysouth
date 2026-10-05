@@ -89,19 +89,58 @@ document.querySelectorAll(".helper-form").forEach(function(form){form.addEventLi
 })();
 
 
+
 (function(){
-  const modal=document.getElementById("jobModal");
-  if(!modal) return;
-  const title=document.getElementById("jobModalTitle"), desc=document.getElementById("jobModalDescription"), pay=document.getElementById("jobModalPay"), loc=document.getElementById("jobModalLocation");
-  document.querySelectorAll(".job-details-button").forEach(function(btn){
-    btn.addEventListener("click",function(){
-      const card=btn.closest(".listing-card");
-      title.textContent=card.querySelector("h4").textContent;
-      desc.textContent=card.querySelector(".listing-card p").textContent;
-      pay.textContent=card.dataset.jobPay || "Pay to be agreed with the customer";
-      loc.textContent=card.querySelector(".listing-location").textContent;
-      modal.hidden=false; modal.setAttribute("aria-hidden","false");
+  const detail=document.getElementById("job-detail");
+  const back=document.getElementById("backToJobs");
+  const marketplace=document.getElementById("marketplace");
+  if(!detail) return;
+  const title=document.getElementById("detailJobTitle");
+  const pay=document.getElementById("detailJobPay");
+  const location=document.getElementById("detailJobLocation");
+  const category=document.getElementById("detailJobCategory");
+  const description=document.getElementById("detailJobDescription");
+  const matchTitle=document.getElementById("matchJobTitle");
+  const matchPay=document.getElementById("matchJobPay");
+  const matchLocation=document.getElementById("matchJobLocation");
+  const matchDescription=document.getElementById("matchJobDescription");
+
+  document.querySelectorAll(".job-details-button").forEach(function(button){
+    button.addEventListener("click",function(){
+      const card=button.closest(".listing-card");
+      const jobTitle=card.querySelector("h4").textContent.trim();
+      const jobDescription=card.querySelector(".listing-card p").textContent.trim();
+      const jobPay=card.dataset.jobPay || "Pay to be agreed";
+      const jobLocation=card.querySelector(".listing-location").textContent.trim();
+      const jobCategory=card.dataset.jobCategory || "Other";
+      title.textContent=jobTitle;
+      pay.textContent=jobPay;
+      location.textContent=jobLocation;
+      category.textContent=jobCategory.charAt(0).toUpperCase()+jobCategory.slice(1);
+      description.textContent=jobDescription;
+      matchTitle.value=jobTitle;
+      matchPay.value=jobPay;
+      matchLocation.value=jobLocation;
+      matchDescription.value=jobDescription;
+      marketplace.hidden=true;
+      detail.hidden=false;
+      detail.scrollIntoView({behavior:"smooth",block:"start"});
+      history.replaceState(null,"","#job-detail");
     });
   });
-  modal.querySelectorAll("[data-close-job]").forEach(function(el){el.addEventListener("click",function(){modal.hidden=true;modal.setAttribute("aria-hidden","true");});});
+
+  back.addEventListener("click",function(){
+    detail.hidden=true;
+    marketplace.hidden=false;
+    marketplace.scrollIntoView({behavior:"smooth",block:"start"});
+    history.replaceState(null,"","#marketplace");
+  });
+
+  const matchForm=document.querySelector(".match-form");
+  if(matchForm){
+    matchForm.addEventListener("submit",function(){
+      const button=matchForm.querySelector("button[type=submit]");
+      if(button){button.disabled=true;button.innerHTML="Sending…";}
+    });
+  }
 })();
