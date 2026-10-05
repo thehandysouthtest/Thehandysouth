@@ -21,9 +21,9 @@
       <div class="hero-copy">
         <p class="eyebrow">LOCAL HELP • MADE SIMPLE</p>
         <h1>Need a hand?<br><span>We’ll help you find one.</span></h1>
-        <p class="hero-text">Tell us what you need done and where you need it. The Handy South is being built to connect people with dependable local help.</p>
+        <p class="hero-text">Tell us what you need done and where you need it. The Handy South is being built to match customers with local helpers without making you chase people down.</p>
         <a class="primary-button" href="#request">Tell us what you need <span>→</span></a>
-        <p class="small-note">Free to request help while we build the service.</p>
+        <p class="small-note"><strong>TEST BUILD:</strong> Try the marketplace below. No real payments or job commitments are made in this testing version.</p>
       </div>
       <div class="hero-card" aria-label="How The Handy South works">
         <div class="card-badge">HOW IT WORKS</div>
@@ -138,7 +138,7 @@
           <p class="eyebrow">INTERESTED IN THIS JOB?</p>
           <h3>Let the customer know you can help.</h3>
           <p>Send your contact information and a short message. The Handy South will use the request to connect the helper and customer.</p>
-          <form class="match-form" action="https://formspree.io/f/xjygvqbb" method="POST">
+          <form class="match-form" action="#" method="POST">
             <input type="hidden" name="_subject" value="Potential job match - The Handy South">
             <input type="hidden" name="job_title" id="matchJobTitle">
             <input type="hidden" name="job_pay" id="matchJobPay">
@@ -212,6 +212,41 @@
       <p class="rewards-note">Rewards, fee levels, and payment-protection features are part of the planned marketplace and may change before launch. The final program will be subject to the platform terms and applicable laws.</p>
     </section>
 
+
+
+    <section class="auto-match-section" id="auto-match">
+      <div class="section-heading">
+        <p class="eyebrow">AUTOMATIC MATCHING</p>
+        <h2>Post a job. Let Handy South do the connecting.</h2>
+        <p>In this test build, job details are matched against helper specialties on this device. Production matching will use the secure backend once Supabase is connected.</p>
+      </div>
+      <div class="auto-match-grid">
+        <div class="auto-match-card">
+          <span class="match-number">01</span>
+          <h3>Customer posts the job</h3>
+          <p>Describe the work, location, category and what you are willing to pay.</p>
+        </div>
+        <div class="auto-match-card">
+          <span class="match-number">02</span>
+          <h3>System finds good fits</h3>
+          <p>Specialty, service area and availability are used to rank possible helpers.</p>
+        </div>
+        <div class="auto-match-card">
+          <span class="match-number">03</span>
+          <h3>Contact stays private</h3>
+          <p>Customers and helpers do not have to publish their phone numbers or email addresses.</p>
+        </div>
+      </div>
+      <div class="test-console" id="testConsole">
+        <div>
+          <p class="eyebrow">TEST CONSOLE</p>
+          <h3>Your test activity</h3>
+          <p id="testConsoleStatus">No test activity yet. Submit a job or send interest to try the automatic flow.</p>
+        </div>
+        <button class="outline-button" type="button" id="clearTestData">Clear test activity</button>
+      </div>
+    </section>
+
     <section class="request-section" id="request">
       <div class="section-heading">
         <p class="eyebrow">BE ONE OF OUR FIRST TESTERS</p>
@@ -249,7 +284,7 @@
           </label>
         </div>
         <button class="primary-button submit-button" type="submit">Send my request <span>→</span></button>
-        <p class="form-note">By submitting, you’re helping us test and shape The Handy South. We’ll only use your information to follow up about your request.</p>
+        <p class="form-note">TEST MODE: Your submission is stored only in this browser for demonstration. No real job is created yet.</p>
         <p class="content-warning" aria-live="polite"></p>
       </form>
     </section>
@@ -258,7 +293,7 @@
       <div class="section-heading">
         <p class="eyebrow">HAVE A SKILL?</p>
         <h2>Get on the helper list.</h2>
-        <p>Tell us what you can do and where you work. We'll keep your information on our early helper list while we build the full provider side of the site.</p>
+        <p>Tell us what you can do and where you work. We'll use your skills and service area to test automatic job matching. Your direct contact information will stay private.</p>
       </div>
       <form class="helper-form" action="https://formspree.io/f/xjygvqbb" method="POST">
         <input type="hidden" name="_subject" value="New The Handy South helper signup">
@@ -270,6 +305,7 @@
         </div>
         <button class="primary-button submit-button" type="submit">Join the helper list <span>→</span></button>
         <p class="content-warning" aria-live="polite"></p>
+        <p class="form-note">TEST MODE: This demo stores your helper profile in this browser only.</p>
       </form>
     </section>
 
@@ -282,9 +318,9 @@
 
   <footer>
     <div class="brand"><span class="brand-mark">H</span><span>The Handy <strong>South</strong></span></div>
-    <p>Helping people find the help they need.</p>
+    <p>Connecting people who need a hand with people ready to help.</p>
     <div class="site-disclaimer">
-  <strong>Important:</strong> The Handy South is a platform intended to help connect people seeking services with people offering help. The Handy South is not a party to any agreement, job, service, or transaction between users. We do not employ, supervise, control, or guarantee any provider or customer, and we do not guarantee the quality, safety, legality, completion, pricing, payment, or outcome of any job or transaction. Users are responsible for communicating directly with one another, evaluating whether a person or service is right for them, agreeing on terms and payment, and handling any disputes. Use The Handy South at your own discretion and risk. This notice is a general site disclaimer and is not a substitute for legal advice.
+  <strong>TEST BUILD / IMPORTANT:</strong> The Handy South is a platform intended to help connect people seeking services with people offering help. The Handy South is not a party to any agreement, job, service, or transaction between users. We do not employ, supervise, control, or guarantee any provider or customer, and we do not guarantee the quality, safety, legality, completion, pricing, payment, or outcome of any job or transaction. Users are responsible for communicating directly with one another, evaluating whether a person or service is right for them, agreeing on terms and payment, and handling any disputes. Use The Handy South at your own discretion and risk. This notice is a general site disclaimer and is not a substitute for legal advice.
 </div>
   </footer>
   <script src="script.js"></script>
