@@ -44,28 +44,54 @@
         <p>We're testing a simple community board where people can see the kind of help being requested and the kinds of skills available.</p>
       </div>
 
+
+      <div class="job-search" aria-label="Search job listings">
+        <div class="search-field">
+          <label for="jobSearch">What kind of job?</label>
+          <input id="jobSearch" type="search" placeholder="Try yard work, cleaning, moving...">
+        </div>
+        <div class="search-field">
+          <label for="jobLocation">Where?</label>
+          <input id="jobLocation" type="search" placeholder="City or ZIP code">
+        </div>
+        <div class="search-field">
+          <label for="jobCategory">Category</label>
+          <select id="jobCategory">
+            <option value="">All categories</option>
+            <option value="yard">Yard work</option>
+            <option value="moving">Moving</option>
+            <option value="handyman">Handyman</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="delivery">Delivery / pickup</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button class="primary-button search-button" type="button" id="jobSearchButton">Search jobs <span>→</span></button>
+      </div>
+      <p class="search-results-count" id="jobResultsCount">Showing all available test listings.</p>
+
       <div class="board-grid">
         <div class="board-column">
           <div class="board-title"><div><p class="eyebrow">JOBS LISTED</p><h3>People needing help</h3></div><span class="count-badge">4</span></div>
-          <article class="listing-card">
+          <article class="listing-card" data-job-search="yard cleanup hauling leaves limbs debris" data-job-location="new albany ms" data-job-category="yard">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">New Albany, MS</span></div>
             <h4>Yard cleanup and hauling</h4><p>Need leaves, limbs and a few bags of debris cleaned up and hauled away.</p>
             <div class="listing-meta"><span>🌿 Yard work</span><span>Posted today</span></div>
             <a class="text-button" href="#request">I can help →</a>
           </article>
-          <article class="listing-card">
+          <article class="listing-card" data-job-search="furniture moving couch heavy items" data-job-location="tupelo ms" data-job-category="moving">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Tupelo, MS</span></div>
             <h4>Furniture moving</h4><p>Need help moving a couch and a few heavy items from one room to another.</p>
             <div class="listing-meta"><span>📦 Moving</span><span>Posted today</span></div>
             <a class="text-button" href="#request">I can help →</a>
           </article>
-          <article class="listing-card">
+          <article class="listing-card" data-job-search="small home repair basic repairs installation handyman" data-job-location="oxford ms" data-job-category="handyman">
             <div class="listing-top"><span class="status-dot"></span><span>Looking for help</span><span class="listing-location">Oxford, MS</span></div>
             <h4>Small home repair</h4><p>Looking for someone comfortable with basic repairs and installation work.</p>
             <div class="listing-meta"><span>🔧 Handyman</span><span>Test listing</span></div>
             <a class="text-button" href="#request">I can help →</a>
           </article>
-          <article class="listing-card">
+          <article class="listing-card" data-job-search="house cleaning one time cleaning" data-job-location="pontotoc ms" data-job-category="cleaning">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Pontotoc, MS</span></div>
             <h4>House cleaning</h4><p>Need a one-time cleaning and would like to find a dependable local helper.</p>
             <div class="listing-meta"><span>🧹 Cleaning</span><span>Test listing</span></div>
