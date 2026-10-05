@@ -144,3 +144,49 @@ document.querySelectorAll(".helper-form").forEach(function(form){form.addEventLi
     });
   }
 })();
+
+
+(function(){
+  const marketplace=document.getElementById("marketplace");
+  const detail=document.getElementById("helper-interest");
+  const back=document.getElementById("backToHelpers");
+  if(!marketplace||!detail) return;
+  const name=document.getElementById("interestHelperName");
+  const location=document.getElementById("interestHelperLocation");
+  const specialty=document.getElementById("interestHelperSpecialty");
+  const nameField=document.getElementById("interestHelperNameField");
+  const locationField=document.getElementById("interestHelperLocationField");
+  const specialtyField=document.getElementById("interestHelperSpecialtyField");
+
+  document.querySelectorAll(".helper-interest-button").forEach(function(button){
+    button.addEventListener("click",function(){
+      const card=button.closest(".helper-card");
+      name.textContent=card.dataset.helperName;
+      location.textContent=card.dataset.helperLocation;
+      specialty.textContent=card.dataset.helperSpecialty;
+      nameField.value=card.dataset.helperName;
+      locationField.value=card.dataset.helperLocation;
+      specialtyField.value=card.dataset.helperSpecialty;
+      marketplace.hidden=true;
+      detail.hidden=false;
+      detail.scrollIntoView({behavior:"smooth",block:"start"});
+      history.replaceState(null,"","#helper-interest");
+    });
+  });
+
+  back.addEventListener("click",function(){
+    detail.hidden=true;
+    marketplace.hidden=false;
+    marketplace.scrollIntoView({behavior:"smooth",block:"start"});
+    history.replaceState(null,"","#marketplace");
+  });
+
+  const form=document.querySelector(".helper-interest-form");
+  if(form){
+    setupFilter(form);
+    form.addEventListener("submit",function(){
+      const button=form.querySelector("button[type=submit]");
+      if(button){button.disabled=true;button.innerHTML="Sending…";}
+    });
+  }
+})();
