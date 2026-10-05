@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Handy South helps you find reliable local help for the jobs you need done.">
+  <title>The Handy South | Find the help you need</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="The Handy South home">
+      <span class="brand-mark">H</span>
+      <span>The Handy <strong>South</strong></span>
+    </a>
+    <a class="header-button" href="#request">Find Help</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LOCAL HELP • MADE SIMPLE</p>
+        <h1>Need a hand?<br><span>We’ll help you find one.</span></h1>
+        <p class="hero-text">Tell us what you need done and where you need it. The Handy South is being built to connect people with dependable local help.</p>
+        <a class="primary-button" href="#request">Tell us what you need <span>→</span></a>
+        <p class="small-note">Free to request help while we build the service.</p>
+      </div>
+      <div class="hero-card" aria-label="How The Handy South works">
+        <div class="card-badge">HOW IT WORKS</div>
+        <div class="step"><b>01</b><div><strong>Tell us the job</strong><span>Describe what you need.</span></div></div>
+        <div class="step"><b>02</b><div><strong>We find local help</strong><span>We match your request with people who can help.</span></div></div>
+        <div class="step"><b>03</b><div><strong>Get it handled</strong><span>Connect and get the job moving.</span></div></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <span>HOME</span><span>YARD</span><span>ODD JOBS</span><span>LOCAL SERVICES</span><span>AND MORE</span>
+    </section>
+
+    <section class="request-section" id="request">
+      <div class="section-heading">
+        <p class="eyebrow">BE ONE OF OUR FIRST TESTERS</p>
+        <h2>What do you need a hand with?</h2>
+        <p>Send us a request. This helps us learn what people in our community actually need before we launch.</p>
+      </div>
+
+      <form class="request-form" action="https://formspree.io/f/xjygvqbb" method="POST">
+        <input type="hidden" name="_subject" value="New The Handy South help request">
+        <div class="form-grid">
+          <label>What do you need help with?
+            <select name="service" required>
+              <option value="" selected disabled>Select a service</option>
+              <option>Home repair / handyman</option>
+              <option>Yard work</option>
+              <option>Moving / lifting</option>
+              <option>Cleaning</option>
+              <option>Delivery / pickup</option>
+              <option>Assembly / installation</option>
+              <option>Computer / technology help</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Where do you need help?
+            <input type="text" name="location" placeholder="City or ZIP code" required>
+          </label>
+          <label class="full">Describe the job
+            <textarea name="description" rows="5" placeholder="Tell us what needs to be done..." required></textarea>
+          </label>
+          <label>Your name
+            <input type="text" name="name" autocomplete="name" placeholder="Your name" required>
+          </label>
+          <label>Best email or phone
+            <input type="text" name="contact" autocomplete="email" placeholder="How should we reach you?" required>
+          </label>
+        </div>
+        <button class="primary-button submit-button" type="submit">Send my request <span>→</span></button>
+        <p class="form-note">By submitting, you’re helping us test and shape The Handy South. We’ll only use your information to follow up about your request.</p>
+      </form>
+    </section>
+
+    <section class="why">
+      <div><p class="eyebrow">WHY THE HANDY SOUTH</p><h2>Sometimes you just need somebody who can help.</h2></div>
+      <div class="why-copy"><p>Finding the right person for a small job can be harder than the job itself. We’re building a simple local service that makes asking for help easier.</p><p><strong>Have a skill?</strong> We’ll eventually make it easy for people who want to help others to find paid opportunities, too.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">H</span><span>The Handy <strong>South</strong></span></div>
+    <p>Helping people find the help they need.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
