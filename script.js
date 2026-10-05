@@ -1,1 +1,2 @@
 document.querySelector(".request-form").addEventListener("submit",function(){const button=this.querySelector("button[type=submit]");button.disabled=true;button.innerHTML="Sending…";});
+document.querySelectorAll(".helper-form").forEach(function(form){form.addEventListener("submit",function(){const button=this.querySelector("button[type=submit]");button.disabled=true;button.innerHTML="Sending…";});});
