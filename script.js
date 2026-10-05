@@ -58,3 +58,32 @@ document.querySelectorAll(".helper-form").forEach(function(form){form.addEventLi
   setupFilter(document.querySelector(".request-form"));
   setupFilter(document.querySelector(".helper-form"));
 })();
+
+
+(function(){
+  const searchInput=document.getElementById("jobSearch");
+  const locationInput=document.getElementById("jobLocation");
+  const categorySelect=document.getElementById("jobCategory");
+  const button=document.getElementById("jobSearchButton");
+  const count=document.getElementById("jobResultsCount");
+  const cards=Array.from(document.querySelectorAll(".listing-card[data-job-search]"));
+  if(!searchInput||!locationInput||!categorySelect||!button||!count) return;
+  function runSearch(){
+    const term=searchInput.value.trim().toLowerCase();
+    const location=locationInput.value.trim().toLowerCase();
+    const category=categorySelect.value;
+    let visible=0;
+    cards.forEach(function(card){
+      const matchesTerm=!term || card.dataset.jobSearch.includes(term);
+      const matchesLocation=!location || card.dataset.jobLocation.includes(location);
+      const matchesCategory=!category || card.dataset.jobCategory===category;
+      const show=matchesTerm&&matchesLocation&&matchesCategory;
+      card.classList.toggle("is-hidden",!show);
+      if(show) visible++;
+    });
+    count.textContent=visible===0 ? "No matching jobs found. Try a different search." : "Showing "+visible+" job listing"+(visible===1?"":"s")+".";
+  }
+  button.addEventListener("click",runSearch);
+  [searchInput,locationInput].forEach(function(input){input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();runSearch();}});});
+  categorySelect.addEventListener("change",runSearch);
+})();
