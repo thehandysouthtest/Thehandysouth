@@ -183,7 +183,19 @@ document.querySelectorAll(".helper-form").forEach(function(form){form.addEventLi
 
   const form=document.querySelector(".helper-interest-form");
   if(form){
-    setupFilter(form);
+    form.addEventListener("submit",function(e){
+      const fields=Array.from(form.querySelectorAll("input, textarea, select")).filter(function(el){ return el.type !== "hidden"; });
+      const combined=fields.map(function(el){ return el.value; }).join(" ");
+      const warning=form.querySelector(".content-warning");
+      if(hasBlockedContent(combined)){
+        e.preventDefault();
+        if(warning){warning.textContent="Please remove profanity, sexual content, or hateful/racist language before submitting.";warning.classList.add("show");}
+        return;
+      }
+      if(warning) warning.classList.remove("show");
+      const button=form.querySelector("button[type=submit]");
+      if(button){button.disabled=true;button.innerHTML="Sending…";}
+    });
     form.addEventListener("submit",function(){
       const button=form.querySelector("button[type=submit]");
       if(button){button.disabled=true;button.innerHTML="Sending…";}
