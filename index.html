@@ -77,25 +77,25 @@
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">New Albany, MS</span></div>
             <h4>Yard cleanup and hauling</h4><p>Need leaves, limbs and a few bags of debris cleaned up and hauled away.</p>
             <div class="listing-meta"><span>🌿 Yard work</span><span>Posted today</span></div>
-            <button class="text-button job-details-button" type="button">View job & pay →</button>
+            <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="furniture moving couch heavy items" data-job-location="tupelo ms" data-job-category="moving" data-job-pay="$100 offered">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Tupelo, MS</span></div>
             <h4>Furniture moving</h4><p>Need help moving a couch and a few heavy items from one room to another.</p>
             <div class="listing-meta"><span>📦 Moving</span><span>Posted today</span></div>
-            <a class="text-button" href="#request">I can help →</a>
+            <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="small home repair basic repairs installation handyman" data-job-location="oxford ms" data-job-category="handyman" data-job-pay="$125 offered">
             <div class="listing-top"><span class="status-dot"></span><span>Looking for help</span><span class="listing-location">Oxford, MS</span></div>
             <h4>Small home repair</h4><p>Looking for someone comfortable with basic repairs and installation work.</p>
             <div class="listing-meta"><span>🔧 Handyman</span><span>Test listing</span></div>
-            <a class="text-button" href="#request">I can help →</a>
+            <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="house cleaning one time cleaning" data-job-location="pontotoc ms" data-job-category="cleaning" data-job-pay="$90 offered">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Pontotoc, MS</span></div>
             <h4>House cleaning</h4><p>Need a one-time cleaning and would like to find a dependable local helper.</p>
             <div class="listing-meta"><span>🧹 Cleaning</span><span>Test listing</span></div>
-            <a class="text-button" href="#request">I can help →</a>
+            <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
         </div>
 
@@ -117,6 +117,42 @@
         </div>
       </div>
       <p class="board-note">These are test listings for the early version of The Handy South. We're building the system that will let real customers and helpers create and manage their own listings.</p>
+    </section>
+
+    <section class="job-detail-section" id="job-detail" hidden>
+      <div class="job-detail-card">
+        <button class="back-button" type="button" id="backToJobs">← Back to jobs</button>
+        <p class="eyebrow">FULL JOB DETAILS</p>
+        <h2 id="detailJobTitle">Job</h2>
+        <div class="job-detail-grid">
+          <div><span>PAY</span><strong id="detailJobPay"></strong></div>
+          <div><span>LOCATION</span><strong id="detailJobLocation"></strong></div>
+          <div><span>CATEGORY</span><strong id="detailJobCategory"></strong></div>
+          <div><span>STATUS</span><strong id="detailJobStatus">Open</strong></div>
+        </div>
+        <div class="job-description-block">
+          <h3>What the customer needs</h3>
+          <p id="detailJobDescription"></p>
+        </div>
+        <div class="match-box">
+          <p class="eyebrow">INTERESTED IN THIS JOB?</p>
+          <h3>Let the customer know you can help.</h3>
+          <p>Send your contact information and a short message. The Handy South will use the request to connect the helper and customer.</p>
+          <form class="match-form" action="https://formspree.io/f/xjygvqbb" method="POST">
+            <input type="hidden" name="_subject" value="Potential job match - The Handy South">
+            <input type="hidden" name="job_title" id="matchJobTitle">
+            <input type="hidden" name="job_pay" id="matchJobPay">
+            <input type="hidden" name="job_location" id="matchJobLocation">
+            <input type="hidden" name="job_description" id="matchJobDescription">
+            <label>Your name<input type="text" name="helper_name" required placeholder="Your name"></label>
+            <label>Your email<input type="email" name="helper_email" required placeholder="you@example.com"></label>
+            <label>Your phone (optional)<input type="tel" name="helper_phone" placeholder="Phone number"></label>
+            <label class="full">Message to the customer<textarea name="helper_message" rows="4" placeholder="Tell them why you're a good fit..."></textarea></label>
+            <button class="primary-button submit-button" type="submit">Send my interest <span>→</span></button>
+            <p class="form-note">This sends the job and your contact information to The Handy South for matching.</p>
+          </form>
+        </div>
+      </div>
     </section>
 
     <section class="request-section" id="request">
@@ -185,15 +221,6 @@
       <div class="why-copy"><p>Finding the right person for a small job can be harder than the job itself. We’re building a simple local service that makes asking for help easier.</p><p><strong>Have a skill?</strong> We’ll eventually make it easy for people who want to help others to find paid opportunities, too.</p></div>
     </section>
   
-    <div class="job-modal" id="jobModal" hidden aria-hidden="true">
-      <div class="job-modal-backdrop" data-close-job></div>
-      <div class="job-modal-card" role="dialog" aria-modal="true" aria-labelledby="jobModalTitle">
-        <button class="job-modal-close" type="button" data-close-job aria-label="Close">×</button>
-        <p class="eyebrow">JOB DETAILS</p><h3 id="jobModalTitle"></h3><p id="jobModalDescription"></p>
-        <div class="job-pay" id="jobModalPay"></div><div class="job-modal-location" id="jobModalLocation"></div>
-        <a class="primary-button" href="#request" id="jobModalHelp">I can help with this job <span>→</span></a>
-      </div>
-    </div>
 </main>
 
   <footer>
