@@ -97,6 +97,13 @@
     try {
       await sendToFormspree(form,formData);
       const data=Object.fromEntries(formData.entries());
+      if(form.classList.contains("request-form") || form.classList.contains("helper-form")) {
+        const shared = await saveSharedSubmission(form, data);
+        if (shared) {
+          if (form.classList.contains("request-form")) d.jobs.push(shared);
+          else d.helpers.push(shared);
+        }
+      }
       if(form.classList.contains("request-form")){
         d.jobs.push({id:Date.now(),service:data.service,location:data.location,description:data.description,name:data.name,contact:data.contact,createdAt:new Date().toISOString(),status:"Open"});
         save(d); renderLocalListings(); status("Job submitted successfully. It was sent to The Handy South and added to this device's job board.");
