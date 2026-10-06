@@ -13,7 +13,7 @@
       <span class="brand-mark">H</span>
       <span>The Handy <strong>South</strong></span>
     </a>
-    <nav class="site-nav"><a href="#marketplace">Jobs & Helpers</a><a href="#benefits">Why use us</a><a href="#request">Find Help</a><a href="#helper">Become a Helper</a></nav>
+    <nav class="site-nav"><a href="#marketplace">Help Wanted</a><a href="#benefits">Why use us</a><a href="#request">Find Help</a><a href="#helper">Become a Helper</a></nav>
   </header>
 
   <main id="top">
@@ -40,8 +40,8 @@
     <section class="marketplace" id="marketplace">
       <div class="section-heading">
         <p class="eyebrow">THE LOCAL HELP BOARD</p>
-        <h2>Jobs that need a hand. Helpers ready to work.</h2>
-        <p>We're testing a simple community board where people can see the kind of help being requested and the kinds of skills available.</p>
+        <h2>Need something done? Post it here.</h2>
+        <p>Post what you need, see local people ready to help, and connect through The Handy South without putting private contact information on the public board.</p>
       </div>
 
 
@@ -72,29 +72,30 @@
 
       <div class="board-grid">
         <div class="board-column jobs-board">
+          <div class="help-wanted-callout"><p class="eyebrow">START HERE</p><h3>Need a hand?</h3><p>Post what you need done, your location, and your budget. We will help connect you with local people who can do it.</p><a class="primary-button" href="#request">Post Help Wanted <span>→</span></a></div>
           <div class="board-title"><div><p class="eyebrow">JOBS LISTED</p><h3>People needing help</h3></div><span class="count-badge">4</span></div>
           <article class="listing-card" data-job-search="yard cleanup hauling leaves limbs debris" data-job-location="new albany ms" data-job-category="yard" data-job-pay="$150 offered">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">New Albany, MS</span></div>
             <h4>Yard cleanup and hauling</h4><p>Need leaves, limbs and a few bags of debris cleaned up and hauled away.</p>
-            <div class="listing-meta"><span>🌿 Yard work</span><span>Posted today</span></div>
+            <div class="listing-meta"><span>🌿 Yard work</span><span>💰 Budget: $150</span></div>
             <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="furniture moving couch heavy items" data-job-location="tupelo ms" data-job-category="moving" data-job-pay="$100 offered">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Tupelo, MS</span></div>
             <h4>Furniture moving</h4><p>Need help moving a couch and a few heavy items from one room to another.</p>
-            <div class="listing-meta"><span>📦 Moving</span><span>Posted today</span></div>
+            <div class="listing-meta"><span>📦 Moving</span><span>💰 Budget: $100</span></div>
             <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="small home repair basic repairs installation handyman" data-job-location="oxford ms" data-job-category="handyman" data-job-pay="$125 offered">
             <div class="listing-top"><span class="status-dot"></span><span>Looking for help</span><span class="listing-location">Oxford, MS</span></div>
             <h4>Small home repair</h4><p>Looking for someone comfortable with basic repairs and installation work.</p>
-            <div class="listing-meta"><span>🔧 Handyman</span><span>Test listing</span></div>
+            <div class="listing-meta"><span>🔧 Handyman</span><span>💰 Budget: $125</span></div>
             <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <article class="listing-card" data-job-search="house cleaning one time cleaning" data-job-location="pontotoc ms" data-job-category="cleaning" data-job-pay="$90 offered">
             <div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">Pontotoc, MS</span></div>
             <h4>House cleaning</h4><p>Need a one-time cleaning and would like to find a dependable local helper.</p>
-            <div class="listing-meta"><span>🧹 Cleaning</span><span>Test listing</span></div>
+            <div class="listing-meta"><span>🧹 Cleaning</span><span>💰 Budget: $90</span></div>
             <button class="text-button job-details-button" type="button">View full job →</button>
           </article>
           <button class="outline-button view-all-button" type="button" data-view-all="jobs">View All Jobs <span>→</span></button>
@@ -259,6 +260,7 @@
 
       <form class="request-form" action="https://formspree.io/f/xjygvqbb" method="POST">
         <input type="hidden" name="_subject" value="New The Handy South help request">
+        <input type="hidden" name="budget" id="requestBudgetHidden">
         <div class="form-grid">
           <label>What do you need help with?
             <select name="service" required>
@@ -276,6 +278,9 @@
           <label>Where do you need help?
             <input type="text" name="location" placeholder="City or ZIP code" required>
           </label>
+          <label>Budget / funding
+            <input type="text" name="budget" placeholder="Example: $150, $25/hour, or willing to discuss" required>
+          </label>
           <label class="full">Describe the job
             <textarea name="description" rows="5" placeholder="Tell us what needs to be done..." required></textarea>
           </label>
@@ -287,7 +292,7 @@
           </label>
         </div>
         <button class="primary-button submit-button" type="submit">Send my request <span>→</span></button>
-        <p class="form-note">TEST MODE: Your submission is stored only in this browser for demonstration. No real job is created yet.</p>
+        <p class="form-note">Your request is sent to The Handy South and added to the shared Help Wanted board. Your private contact information is not displayed publicly.</p>
         <p class="content-warning" aria-live="polite"></p>
       </form>
     </section>
