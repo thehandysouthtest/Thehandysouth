@@ -140,5 +140,79 @@
   if(backHelpers)backHelpers.onclick=()=>{helperDetail.hidden=true;marketplace.hidden=false;marketplace.scrollIntoView({behavior:"smooth"});};
   const clear=document.getElementById("clearTestData");
   if(clear)clear.onclick=()=>{localStorage.removeItem(KEY);renderLocalListings();status("Test activity cleared from this browser.");};
+
+
+  // Shared Supabase marketplace
+  const SUPABASE_URL = "https://gyfdtdxnbtkutjbiqgzi.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_mgnjBH30_1_fCJxkor4HDQ_9df3ckHv";
+
+  async function supabaseFetch(path, options={}) {
+    const headers = {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json",
+      ...(options.headers || {})
+    };
+    const response = await fetch(SUPABASE_URL + "/rest/v1/" + path, {...options, headers});
+    if (!response.ok) {
+      let msg = "Shared marketplace request failed.";
+      try { const body = await response.json(); msg = body.message || body.hint || msg; } catch {}
+      throw new Error(msg);
+    }
+    return response.status === 204 ? null : response.json();
+  }
+
+  async function loadSharedMarketplace() {
+    try {
+      const [jobs, helpers] = await Promise.all([
+        supabaseFetch("jobs?select=*&status=eq.Open&order=created_at.desc"),
+        supabaseFetch("helpers?select=*&available=eq.true&order=created_at.desc")
+      ]);
+      const d = read();
+      d.jobs = jobs || [];
+      d.helpers = helpers || [];
+      save(d);
+      renderLocalListings();
+      status("Live marketplace connected: " + d.jobs.length + " job(s) and " + d.helpers.length + " helper(s).");
+    } catch (error) {
+      console.error("Shared marketplace load failed:", error);
+      status("Live marketplace is temporarily unavailable. Showing the local test listings.");
+    }
+  }
+
+  async function saveSharedSubmission(form, data) {
+    if (form.classList.contains("request-form")) {
+      const rows = await supabaseFetch("jobs", {
+        method: "POST",
+        headers: {"Prefer":"return=representation"},
+        body: JSON.stringify({
+          service: data.service,
+          location: data.location,
+          description: data.description,
+          name: data.name,
+          contact: data.contact,
+          status: "Open"
+        })
+      });
+      return rows?.[0];
+    }
+    if (form.classList.contains("helper-form")) {
+      const rows = await supabaseFetch("helpers", {
+        method: "POST",
+        headers: {"Prefer":"return=representation"},
+        body: JSON.stringify({
+          name: data.helper_name,
+          location: data.helper_location,
+          skills: data.skills,
+          contact: data.helper_contact,
+          available: true
+        })
+      });
+      return rows?.[0];
+    }
+    return null;
+  }
+
   renderLocalListings();
+  loadSharedMarketplace();
 })();
