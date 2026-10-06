@@ -35,9 +35,9 @@
       article.dataset.jobSearch=normalize([job.service,job.description].join(" "));
       article.dataset.jobLocation=normalize(job.location);
       article.dataset.jobCategory="";
-      article.dataset.jobPay=job.pay||"Pay to be agreed";
+      article.dataset.jobPay=job.budget||job.pay||"Pay to be agreed";
       article.dataset.localId=job.id;
-      article.innerHTML='<div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">'+escapeHtml(job.location)+'</span></div><h4>'+escapeHtml(job.service)+'</h4><p>'+escapeHtml(job.description)+'</p><div class="listing-meta"><span>📌 Customer request</span><span>Just submitted</span></div><button class="text-button job-details-button" type="button">View full job →</button>';
+      article.innerHTML='<div class="listing-top"><span class="status-dot"></span><span>New request</span><span class="listing-location">'+escapeHtml(job.location)+'</span></div><h4>'+escapeHtml(job.service)+'</h4><p>'+escapeHtml(job.description)+'</p><div class="listing-meta"><span>📌 Help Wanted</span><span>💰 Budget: '+escapeHtml(job.budget||job.pay||"To be discussed")+'</span></div><button class="text-button job-details-button" type="button">View full job →</button>';
       if(viewJobs)jobsBoard.insertBefore(article,viewJobs);else jobsBoard.appendChild(article);
       wireJobButton(article.querySelector(".job-details-button"));
     });
@@ -105,7 +105,7 @@
         }
       }
       if(form.classList.contains("request-form")){
-        d.jobs.push({id:Date.now(),service:data.service,location:data.location,description:data.description,name:data.name,contact:data.contact,createdAt:new Date().toISOString(),status:"Open"});
+        d.jobs.push({id:Date.now(),service:data.service,location:data.location,description:data.description,name:data.name,contact:data.contact,budget:data.budget,createdAt:new Date().toISOString(),status:"Open"});
         save(d); renderLocalListings(); status("Job submitted successfully. It was sent to The Handy South and added to this device's job board.");
       } else if(form.classList.contains("helper-form")){
         d.helpers.push({id:Date.now(),name:data.helper_name,location:data.helper_location,skills:data.skills,contact:data.helper_contact,available:true,createdAt:new Date().toISOString()});
@@ -198,6 +198,7 @@
           description: data.description,
           name: data.name,
           contact: data.contact,
+          budget: data.budget,
           status: "Open"
         })
       });
